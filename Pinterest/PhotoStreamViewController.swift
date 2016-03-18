@@ -30,20 +30,24 @@ class PhotoStreamViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  
     
     if let patternImage = UIImage(named: "Pattern") {
       view.backgroundColor = UIColor(patternImage: patternImage)
     }
     
+    
     collectionView!.backgroundColor = UIColor.clearColor()
+    collectionView!.contentInset = UIEdgeInsets(top:23, left:5, bottom: 10,right:5)
+    
+    
     let size = CGRectGetWidth(collectionView!.bounds) / 2
     
     let layout = collectionViewLayout as! PinterestLayout
     layout.delegate = self
     layout.numberOfColumns = 2
+    layout.cellPadding = 5
     
-//    let layout = collectionViewLayout as! UICollectionViewFlowLayout
-//    layout.itemSize = CGSize(width: size, height: size)
   }
   
 }

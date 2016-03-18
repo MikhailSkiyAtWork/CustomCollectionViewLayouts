@@ -18,12 +18,14 @@ class PinterestLayout: UICollectionViewLayout {
     
     var delegate: PinterestLayoutDelegate!
     var numberOfColumns = 1
+    var cellPadding: CGFloat = 0
     
     private var cache = [UICollectionViewLayoutAttributes]()
     private var contentHeight: CGFloat = 0
     private var width: CGFloat {
         get {
-            return CGRectGetWidth(collectionView!.bounds)
+            let insets = collectionView!.contentInset
+            return CGRectGetWidth(collectionView!.bounds) - (insets.left + insets.right)
         }
     }
     
@@ -47,8 +49,9 @@ class PinterestLayout: UICollectionViewLayout {
                 let indexPath = NSIndexPath(forItem: item, inSection: 0)
                 let height = delegate.collectionView(collectionView!, heightForItemAtIndexPath: indexPath)
                 let frame = CGRect(x:xOffsets[column], y: yOffsets[column], width: columnWidth, height: height)
+                let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                attributes.frame = frame
+                attributes.frame = insetFrame
                 cache.append(attributes)
                 contentHeight = max(contentHeight,CGRectGetMaxY(frame))
                 yOffsets[column] = yOffsets[column] + height
