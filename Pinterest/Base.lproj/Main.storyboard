@@ -16,14 +16,49 @@
                         <collectionViewLayout key="collectionViewLayout" id="oan-Gw-x2V" customClass="PinterestLayout" customModule="Pinterest" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AnnotatedPhotoCell" id="YvZ-ba-bjz" customClass="AnnotatedPhotoCell" customModule="Pinterest" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="259"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="259"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDy-qM-sbC" customClass="RoundedCornersView" customModule="Pinterest" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="259"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WVw-gg-3xU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                    <color key="backgroundColor" red="1" green="0.20525712873529911" blue="0.05860242566732532" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="eQ4-wQ-Lr2"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WVw-gg-3xU" secondAttribute="trailing" id="8jZ-pO-dYg"/>
+                                                <constraint firstItem="WVw-gg-3xU" firstAttribute="top" secondItem="tDy-qM-sbC" secondAttribute="top" id="Ief-vz-wP7"/>
+                                                <constraint firstItem="WVw-gg-3xU" firstAttribute="leading" secondItem="tDy-qM-sbC" secondAttribute="leading" id="Uf1-zD-tI8"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tDy-qM-sbC" firstAttribute="top" secondItem="YvZ-ba-bjz" secondAttribute="top" id="5he-FC-6hI"/>
+                                    <constraint firstAttribute="trailing" secondItem="tDy-qM-sbC" secondAttribute="trailing" id="QfY-qO-iLy"/>
+                                    <constraint firstItem="tDy-qM-sbC" firstAttribute="leading" secondItem="YvZ-ba-bjz" secondAttribute="leading" id="kxR-ya-HVU"/>
+                                    <constraint firstAttribute="bottom" secondItem="tDy-qM-sbC" secondAttribute="bottom" id="nNI-IF-iza"/>
+                                </constraints>
+                                <size key="customSize" width="200" height="259"/>
+                                <connections>
+                                    <outlet property="imageView" destination="WVw-gg-3xU" id="QwQ-fs-Hnu"/>
+                                    <outlet property="imageViewHeightLayoutConstraint" destination="eQ4-wQ-Lr2" id="Qps-BN-9XB"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
